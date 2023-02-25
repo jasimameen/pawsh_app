@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pawsh_app/presentation/client_detail/pages/client_detail_page.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({
@@ -7,28 +9,36 @@ class ContactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Material(
+    return Material(
       child: SizedBox(
         height: 56,
         width: double.infinity,
         child: ListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                  builder: (context) => const ClientDetailPage()),
+            );
+          },
+
           // avathar
-          leading: CircleAvatar(radius: 20),
+          leading: const CircleAvatar(radius: 20),
 
           // title
-          title: Text(
+          title: const Text(
             'Robert Fox',
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
 
           // recent message
-          subtitle: Text(
+          subtitle: const Text(
             'Hachi: Maltese',
             style: TextStyle(fontSize: 13),
           ),
 
           // trailing
-          trailing: Text(
+          trailing: const Text(
             'New',
             textAlign: TextAlign.right,
             style: TextStyle(
