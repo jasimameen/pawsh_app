@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../contacts/pages/contacts_page.dart';
+
 class BasePage extends StatelessWidget {
   const BasePage({super.key});
 
@@ -8,7 +10,7 @@ class BasePage extends StatelessWidget {
     Center(child: Text('Home')),
     Center(child: Text('Calender')),
     Center(child: Text('Chat')),
-    Center(child: Text('Contacts')),
+    ContactsPage(),
     Center(child: Text('Settings')),
   ];
 
