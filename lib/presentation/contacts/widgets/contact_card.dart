@@ -24,17 +24,20 @@ class ContactCard extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ClientDetailPage(),
+                builder: (context) => ClientDetailPage(user: userData),
               ),
             );
           },
 
           // avathar
-          leading: CircleAvatar(
-            radius: 20,
-            backgroundImage: NetworkImage(userData.imageUrl),
-            onBackgroundImageError: (_, __) => const Center(
-              child: Icon(CupertinoIcons.wifi_exclamationmark),
+          leading: Hero(
+            tag: userData.id,
+            child: CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(userData.imageUrl),
+              onBackgroundImageError: (_, __) => const Center(
+                child: Icon(CupertinoIcons.wifi_exclamationmark),
+              ),
             ),
           ),
 

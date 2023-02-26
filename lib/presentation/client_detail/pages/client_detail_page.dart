@@ -1,8 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pawsh_app/core/extensions.dart';
 import 'package:pawsh_app/core/pallete.dart';
-import 'package:pawsh_app/presentation/client_detail/widgets/action_button.dart';
+import 'package:pawsh_app/core/utils/utils.dart';
+import 'package:pawsh_app/domain/entities/user.dart';
 import 'package:pawsh_app/presentation/client_detail/widgets/appoinment_data_card.dart';
 import 'package:pawsh_app/presentation/client_detail/widgets/list_card.dart';
 import 'package:pawsh_app/presentation/client_detail/widgets/pet_card.dart';
@@ -22,7 +24,12 @@ const fakePetData = PetData(
 );
 
 class ClientDetailPage extends StatelessWidget {
-  const ClientDetailPage({super.key});
+  const ClientDetailPage({
+    Key? key,
+    required this.user,
+  }) : super(key: key);
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +39,7 @@ class ClientDetailPage extends StatelessWidget {
         child: ListView(
           children: [
             // header
-            const ProfileHeader(),
+            ProfileHeader(user: user),
 
             // appointment button
             const _AppointmentButton(),
@@ -83,7 +90,10 @@ class _AppointmentButton extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black, padding: const EdgeInsets.all(10)),
-        onPressed: () {},
+        onPressed: () {
+          // pick date
+          pickDate(context);
+        },
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:pawsh_app/core/error/exceptions.dart';
 import 'package:pawsh_app/core/error/failures.dart';
 
 import '../../core/type_defs.dart';

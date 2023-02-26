@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:pawsh_app/domain/entities/user.dart';
 
 class UserModel {

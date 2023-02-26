@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pawsh_app/core/constants.dart';
+
 import 'package:pawsh_app/core/extensions.dart';
+import 'package:pawsh_app/domain/entities/user.dart';
 
 import 'action_button.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
     Key? key,
+    required this.user,
   }) : super(key: key);
+
+  final User user;
 
   @override
   Widget build(BuildContext context) {
@@ -17,26 +21,29 @@ class ProfileHeader extends StatelessWidget {
       child: Column(
         children: [
           // Content
-          const CircleAvatar(
-            radius: 48,
-            backgroundImage: NetworkImage(Constants.dummyPortrait),
+          Hero(
+            tag: user.id,
+            child: CircleAvatar(
+              radius: 48,
+              backgroundImage: NetworkImage(user.imageUrl),
+            ),
           ),
           8.hSizedBox,
 
           // Name
-          const Text(
-            'Jerome Bell',
+          Text(
+            user.name,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
             ),
           ),
           4.hSizedBox,
-          const Text(
-            'Client since Nov 2020',
+          Text(
+            'Client since ${user.joinedDate}',
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               color: Color(0xff717171),
             ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,9 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'injection.dart';
 import 'presentation/base/pages/base_page.dart';
-import 'presentation/client_detail/pages/client_detail_page.dart';
 import 'presentation/contacts/bloc/contact_bloc.dart';
-import 'presentation/contacts/pages/contacts_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,8 +39,6 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const BasePage(),
-          '/contacts': (context) => const ContactsPage(),
-          '/client-details': (context) => const ClientDetailPage(),
         },
 
         // app entry

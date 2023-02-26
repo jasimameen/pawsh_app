@@ -19,7 +19,6 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
   ContactBloc(this._getAllUsers, this._searchUsers)
       : super(ContactState.initial()) {
     on<_FetchAllContacts>((event, emit) async {
-      log('hai called');
       // send loading state
       emit(state.copyWith(isLoading: true));
 
@@ -40,8 +39,6 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
       emit(state.copyWith(isLoading: true));
 
       // get search data
-      final res = await _searchUsers(SearchParams(query: event.searchQuery));
-
       final searchRes = state.contacts
           .where((element) => element
               .toString()
