@@ -1,16 +1,7 @@
-# pawsh_app
 
-A new Flutter project.
+![pawsh-logo](https://user-images.githubusercontent.com/89957373/221409281-1f2ffc7f-8c63-4cd5-9a23-7845ae872328.png)
+# Pawsh
 
-## Getting Started
+Pawsh connects you with top on-demand pet grooming professionals.  Taking care of your pet has never been this easy and convenient.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Visit https://www.pawsh.app/ for more details.
