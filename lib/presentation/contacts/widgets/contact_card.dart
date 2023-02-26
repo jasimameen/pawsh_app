@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pawsh_app/core/constants.dart';
 import 'package:pawsh_app/presentation/client_detail/pages/client_detail_page.dart';
 
 class ContactCard extends StatelessWidget {
@@ -17,13 +17,19 @@ class ContactCard extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              CupertinoPageRoute(
-                  builder: (context) => const ClientDetailPage()),
+              MaterialPageRoute(
+                builder: (context) => const ClientDetailPage(),
+              ),
             );
           },
 
           // avathar
-          leading: const CircleAvatar(radius: 20),
+          leading: const CircleAvatar(
+            radius: 20,
+            backgroundImage: NetworkImage(Constants.dummyPortrait),
+          ),
+
+          contentPadding: EdgeInsets.zero,
 
           // title
           title: const Text(

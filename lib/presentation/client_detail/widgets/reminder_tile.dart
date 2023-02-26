@@ -17,25 +17,36 @@ class ReminderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // icon
-        CircleAvatar(
-          radius: 12,
-          child: Icon(
-            iconData,
-            color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        children: [
+          // icon
+          CircleAvatar(
+            radius: 14,
+            backgroundColor: Colors.black,
+            child: Padding(
+              padding: const EdgeInsets.all(3),
+              child: Center(
+                child: Icon(
+                  iconData,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
-        ),
 
-        8.wSizedBox,
+          8.wSizedBox,
 
-        // title
-        Text(
-          label,
-          style: TextStyle(color: labelColor),
-        ),
-      ],
+          // title
+          Flexible(
+            child: Text(
+              label,
+              style: TextStyle(color: labelColor),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

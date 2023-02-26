@@ -26,9 +26,10 @@ class ClientDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: SingleChildScrollView(
-        child: Column(
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 44),
+        child: ListView(
           children: [
             // header
             const ProfileHeader(),
@@ -71,21 +72,17 @@ class _AppointmentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-      child: CupertinoButton.filled(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.add_circle_outline),
-            10.wSizedBox,
-            const Text(
-              'Create an appointment',
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+      child: ElevatedButton.icon(
+        icon: const Icon(Icons.add_circle_outline),
+        label: const Text(
+          'Create an appointment',
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
         ),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black, padding: const EdgeInsets.all(10)),
         onPressed: () {},
       ),
     );
@@ -178,11 +175,16 @@ class _PetsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 280,
       child: ListCard(
         title: 'Pets',
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => const PetCard(data: fakePetData),
+        child: Expanded(
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, index) => const PetCard(data: fakePetData),
+            separatorBuilder: (context, index) => 10.wSizedBox,
+          ),
         ),
       ),
     );

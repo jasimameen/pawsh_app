@@ -9,24 +9,28 @@ class ContactsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
+    return Scaffold(
       // body
-      child: Column(
-        children: [
-          // header
-          const _Header(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 40),
+        child: Column(
+          children: [
+            // header
+            const _Header(),
 
-          // Contacs view
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) => const ContactCard(),
+            // Contacs view
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ListView.builder(
+                  itemCount: 20,
+                  itemBuilder: (context, index) => const ContactCard(),
+                  physics: const BouncingScrollPhysics(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -62,13 +66,13 @@ class _Header extends StatelessWidget {
                     // big text
                     TextSpan(
                       text: 'Clients',
-                      style: TextStyle(fontSize: 34),
+                      style: TextStyle(fontSize: 34, color: Colors.black),
                     ),
 
                     // count
                     TextSpan(
                       text: ' (200)',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   ],
                 ),

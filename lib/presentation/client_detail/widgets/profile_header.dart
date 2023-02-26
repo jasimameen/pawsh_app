@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pawsh_app/core/constants.dart';
 import 'package:pawsh_app/core/extensions.dart';
 
 import 'action_button.dart';
-
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
@@ -12,14 +12,15 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 242,
-      width: double.infinity,
+    return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Column(
         children: [
           // Content
-          const CircleAvatar(radius: 48),
+          const CircleAvatar(
+            radius: 48,
+            backgroundImage: NetworkImage(Constants.dummyPortrait),
+          ),
           8.hSizedBox,
 
           // Name

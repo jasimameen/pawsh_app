@@ -18,6 +18,7 @@ class ListCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           8.hSizedBox,
 
