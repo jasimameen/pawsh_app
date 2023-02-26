@@ -1,11 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pawsh_app/core/constants.dart';
+
+import 'package:pawsh_app/domain/entities/user.dart';
 import 'package:pawsh_app/presentation/client_detail/pages/client_detail_page.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({
     Key? key,
+    required this.userData,
   }) : super(key: key);
+
+  final User userData;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +30,20 @@ class ContactCard extends StatelessWidget {
           },
 
           // avathar
-          leading: const CircleAvatar(
+          leading: CircleAvatar(
             radius: 20,
-            backgroundImage: NetworkImage(Constants.dummyPortrait),
+            backgroundImage: NetworkImage(userData.imageUrl),
+            onBackgroundImageError: (_, __) => const Center(
+              child: Icon(CupertinoIcons.wifi_exclamationmark),
+            ),
           ),
 
           contentPadding: EdgeInsets.zero,
 
           // title
-          title: const Text(
-            'Robert Fox',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+          title: Text(
+            userData.name,
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
           ),
 
           // recent message
